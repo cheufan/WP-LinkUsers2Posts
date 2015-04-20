@@ -40,23 +40,24 @@ function wpder_button_func( $atts ){
     'url' => null
   ), $atts);
   $post_id = url_to_postid($a['url']);
-  // est ce que l'URL existe ?
+  // URL exist?
   if ($post_id==0) return;
   $user_id = wp_get_current_user()->data->ID;
-  //determiner suffixe bdd
-  //--
   global $wpdb;
-  $register = $wpdb->get_results(
+  $table_name = $wpdb->prefix . "wpder";
+  $register = $wpdb->get_var( $wpdb->prepare(
   	"
-    SELECT count(id) AS result FROM wp_wpder
+    SELECT count(id) AS result FROM $table_name
     WHERE 1
-      AND post_id=$post_id
-      AND user_id=$user_id
-  	"
-  , ARRAY_N)[0][0];
-  //affichage du formulaire
+      AND post_id=%d
+      AND user_id=%d
+  	",
+    $post_id,
+    $user_id
+  ));
+  //form display
   if ($register)
-    $button_value = "Désincription";
+    $button_value = "Désinscription";
   else
     $button_value = "Inscription";
   $action_file = admin_url( 'admin-post.php' );
@@ -70,19 +71,32 @@ function wpder_button_func( $atts ){
   ";
 }
 
-// traitement du post
+// POST execution
 function prefix_admin_register() {
+  if (isset($_POST['post']) && isset($_POST['register'])) {
     $current_user = wp_get_current_user();
-    echo $current_user->data->ID;
-    echo $_POST['post'];
-    echo $_POST['register'];
-    wp_safe_redirect( wp_get_referer() );
+    global $wpdb;
+    $table_name = $wpdb->prefix . "wpder";
+    if ($_POST['register']) {
+      $wpdb->delete($table_name,
+        array('user_id' => $current_user->data->ID,
+              'post_id' => $_POST['post']),
+        array('%d', '%d') );
+    }
+    else {
+      $wpdb->insert($table_name,
+        array('user_id' => $current_user->data->ID,
+              'post_id' => $_POST['post']),
+        array('%d', '%d'));
+    }
+  }
+  wp_safe_redirect( wp_get_referer() );
 }
 
 // =============================================================================
-// si plugin non installé
-  // création de la BDD
+// if plugin is installed
+  // DB creation
 
-// sinon
+// else
 add_action( 'admin_post_register', 'prefix_admin_register' );
 add_shortcode( 'wpder_button', 'wpder_button_func' );
