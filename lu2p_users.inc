@@ -8,7 +8,7 @@ function lu2p_users_func( $atts ){
   //get users
   $post_id = get_the_ID();
   $query = "
-    SELECT $users.ID, user_nicename  FROM $users
+    SELECT $users.ID, user_nicename FROM $users
     JOIN $lu2p ON $users.ID=user_id
     WHERE post_id=$post_id
     ORDER BY create_date

@@ -12,7 +12,7 @@ function lu2p_form_func( $atts ){
   ), $atts);
   $today = date_create();
   $max_date = date_create($a['max_date']);
-  if ($today > $max_date) return "(inscriptions fermées)";
+  if ($today > $max_date) return '(inscriptions fermées)';
   $post_id = url_to_postid($a['url']);
   if ($post_id==0) return;
   // get users

@@ -1,7 +1,7 @@
 <?php
 /**
 * Plugin Name: WP Link Users 2 Posts
-* Description: A very simple plugin to associate users with post.
+* Description: A very simple plugin to associate users with posts.
 * Author: François Daneau
 * Version: 0.1
 * Author URI: http://www.rollerngo.fr
@@ -26,9 +26,6 @@
 
 /*
 TODO :
-  * Installation auto du plugin :
-    - création de la BDD
-    - marquage avec l'API option de l'état du plugin (installé/ou pas)
   * I18n
 */
 
@@ -36,17 +33,16 @@ TODO :
 $users = $wpdb->prefix.'users';
 $lu2p = $wpdb->prefix.'lu2p';
 
+// plugin installation
+if (!get_option('lu2p_install'))
+  include('lu2p_install.inc');
+
 // Code for [lu2p_form] shortcode
 include_once('lu2p_form.inc');
 // Code for [lu2p_users] shortcode
 include_once('lu2p_users.inc');
 
-// if plugin isn't installed
-  // DB creation
-  // include('lu2p_install.inc');
-  // install();
-
-// else
+// Hooks
 add_action( 'admin_post_lu2p_form', 'lu2p_form_post' );
 add_shortcode( 'lu2p_form', 'lu2p_form_func' );
 add_shortcode( 'lu2p_users', 'lu2p_users_func' );
