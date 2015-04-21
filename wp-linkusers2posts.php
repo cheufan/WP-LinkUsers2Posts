@@ -29,7 +29,6 @@ TODO :
   * Installation auto du plugin :
     - création de la BDD
     - marquage avec l'API option de l'état du plugin (installé/ou pas)
-  * Date limites
   * I18n
 */
 

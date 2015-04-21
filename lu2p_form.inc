@@ -7,10 +7,14 @@ function lu2p_form_func( $atts ){
   // get attributes
   if ( ! is_user_logged_in() ) return;
   $a = shortcode_atts( array(
-    'url' => get_post_permalink()
+    'url' => get_post_permalink(),
+    'max_date' => null
   ), $atts);
+  $today = date_create();
+  $max_date = date_create($a['max_date']);
+  if ($today > $max_date) return "(inscriptions fermées)";
   $post_id = url_to_postid($a['url']);
-  if ($post_id==0) return;   // URL exist?
+  if ($post_id==0) return;
   // get users
   $user_id = wp_get_current_user()->data->ID;
   $register = $wpdb->get_var( $wpdb->prepare(
