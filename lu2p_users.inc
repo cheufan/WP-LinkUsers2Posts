@@ -28,17 +28,19 @@ function lu2p_users_func( $atts ){
   if ($users_nbr) {
     $users_list = implode(',',$users_list);
     if ($users_nbr==1)
-      $verb = "est";
+      $verb = __('is', TEXT_DOMAIN);
     else {
-      $verb = "sont";
+      $verb = __('are', TEXT_DOMAIN);
       $users_list = substr_replace(
         $users_list,
-        " et ",
+        __(' and', TEXT_DOMAIN),
         strrpos($users_list,', '),
         1
       );
     }
-    return "$users_list $verb inscrit.";
+    return sprintf(__('%s %s registred.', TEXT_DOMAIN),
+                  $users_list,
+                  $verb);
   }
   return;
 }

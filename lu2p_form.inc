@@ -12,7 +12,8 @@ function lu2p_form_func( $atts ){
   ), $atts);
   $today = date_create();
   $max_date = date_create($a['max_date']);
-  if ($today > $max_date) return '(inscriptions fermées)';
+  if ($today > $max_date)
+    return __('Registrations are closed.', TEXT_DOMAIN);
   $post_id = url_to_postid($a['url']);
   if ($post_id==0) return;
   // get users
@@ -24,8 +25,8 @@ function lu2p_form_func( $atts ){
         AND user_id=%d
      ", $post_id, $user_id));
   // display form
-  if ($register) $button_value = 'Désinscription';
-  else $button_value = 'Inscription';
+  if ($register) $button_value = __('Unsubscribe', TEXT_DOMAIN);
+  else $button_value = __('Subscribe', TEXT_DOMAIN);
   $post_file = admin_url( 'admin-post.php' );
   return "
     <form method='POST' action='$post_file'>

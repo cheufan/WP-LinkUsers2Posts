@@ -5,6 +5,7 @@
 * Author: François Daneau
 * Version: 0.1
 * Author URI: http://www.rollerngo.fr
+* Text Domain: wp-link-users-2-posts
 * License: GPL2
 */
 
@@ -24,12 +25,8 @@
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-/*
-TODO :
-  * I18n
-*/
-
 // DB vars
+global $wpdb;
 $users = $wpdb->prefix.'users';
 $lu2p = $wpdb->prefix.'lu2p';
 
@@ -42,7 +39,17 @@ include_once('lu2p_form.inc');
 // Code for [lu2p_users] shortcode
 include_once('lu2p_users.inc');
 
+// Internationalisation
+define('TEXT_DOMAIN', 'wp-link-users-2-posts');
+
+function i18n_init() {
+ $plugin_dir = basename(dirname(__FILE__));
+ echo $plugin_dir;
+ load_plugin_textdomain( TEXT_DOMAIN, false, $plugin_dir );
+}
+
 // Hooks
+add_action('plugins_loaded', 'i18n_init');
 add_action( 'admin_post_lu2p_form', 'lu2p_form_post' );
 add_shortcode( 'lu2p_form', 'lu2p_form_func' );
 add_shortcode( 'lu2p_users', 'lu2p_users_func' );
