@@ -10,15 +10,15 @@ Create a folder and  named it **"wp-linkusers2posts"**, put all files into this 
 ## How to use
 To use it, you just have to write a shortcode on article or page.
 [lu2p_form] display a button to register or unregister.
-[lu2p_users] display list of asssociate users.
+[lu2p_users] display list of associate users.
 e.g
-* [lu2p_form] : display form to register/unregister for the current post/page.
-* [lu2p_form url="http://www.example.com/your-post"] : display form to register/unregister for the post/page specify by url.
-* [lu2p_form max_date="11/05/2015"] : display form while max_date isn't past.
-* [lu2p_users] display list of asssociate users. (no options availables)
+* [lu2p_form] : display form to register/unregister the current post/page.
+* [lu2p_form url="http://www.example.com/your-post"] : display form to register/unregister the post/page specify by url.
+* [lu2p_form max_date="11/05/2015"] : display form till max_date.
+* [lu2p_users] display list of associate users. (no options availables)
 
 ## Compatibility
-I have only test with WP 4.1
+I have test only with WP 4.1
 
 ## I18n
-This plugin is write in english and translate in french with gettext.
+I wrote this plugin in english and translate it in french with gettext.
