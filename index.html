@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>WP-LinkUsers2Posts</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+  <link href='http://fonts.googleapis.com/css?family=Goudy+Bookletter+1911' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="gh-page/style.css">
+</head>
+<body>
+  <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
+    <div class="containerfluid">
+      <div class="navbar-header">
+        <a href="#" class="navbar-brand">WP-LinkUsers2Posts</a>
+      </div>
+    </div>
+  </nav>
+  <div class="container-fluid">
+    <header class="jumbotron">
+      <h1>WP-LinkUsers2Posts</h1>
+      <p>A very simple Wordpress plugin to associate many users with posts.</p>
+    </header>
+    <div class="col-md-8 col-md-offset-2">
+      <div class="row">
+        <main>
+          <h2 class="text-center">
+            <span class="glyphicon glyphicon-save-file" aria-hidden="true"></span>
+            Installation
+          </h2>
+          <p>Like all other wordpress plugin's :<br>
+            Create a folder and named it <strong>"wp-linkusers2posts"</strong>,
+            put all files into this folder.
+            Go to <strong>Admin zone-> Plugins</strong> and click on
+            <strong>Activate plugin</strong>.
+          </p>
+          <hr class="visible-phone"/>
+          <h2 class="text-center">
+            <span class="glyphicon glyphicon-education" aria-hidden="true"></span>
+            How to use
+          </h2>
+          <p>To use it, you just have to write a shortcode on article or page.
+            <code>[lu2p_form]</code> display a button to register or unregister.
+            <code>[lu2p_users]</code> display list of associate users. e.g
+            <ul>
+              <li>
+                <code>[lu2p_form]</code>
+                : display form to register/unregister the current post/page.
+              </li>
+              <li>
+                <code>[lu2p_form url="http://www.example.com/your-post"]</code>
+                : display form to register/unregister the post/page specify by url.
+              </li>
+              <li>
+                <code>[lu2p_form max_date="11/05/2015"]</code>
+                : display form till max_date.
+              </li>
+              <li>
+                <code>[lu2p_users]</code>
+                : display list of associate users. (no options availables)
+              </li>
+            </ul>
+          </p>
+          <hr class="visible-phone"/>
+          <h2 class="text-center">
+            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+            Compatibility
+          </h2>
+          <p>I have test only with WP 4.1</p>
+          <hr class="visible-phone"/>
+          <h2 class="text-center">
+            <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
+            I18n
+          </h2>
+          <p>I wrote this plugin in english and translate it
+            in french with gettext.</p>
+        </main>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="container">
+      <img src="gh-page/codeispoetry-wht.png" alt="Logo 'code is poetry'">
+    </div>
+  </footer>
+  <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</body>
+</html>
