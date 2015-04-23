@@ -4,7 +4,7 @@
 * Description: A very simple plugin to associate users with posts.
 * Author: François Daneau
 * Version: 0.1
-* Author URI: http://www.rollerngo.fr
+* Author URI: http://cheufan.github.io/WP-LinkUsers2Posts/
 * Text Domain: wp-link-users-2-posts
 * License: GPL2
 */
