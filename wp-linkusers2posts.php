@@ -3,7 +3,7 @@
 * Plugin Name: WP Link Users 2 Posts
 * Description: A very simple plugin to associate users with posts.
 * Author: François Daneau
-* Version: 0.1
+* Version: 0.1.1
 * Author URI: http://cheufan.github.io/WP-LinkUsers2Posts/
 * Text Domain: wp-linkusers2posts
 * License: GPL2
@@ -44,7 +44,6 @@ define('TEXT_DOMAIN', 'wp-linkusers2posts');
 
 function i18n_init() {
  $plugin_dir = basename(dirname(__FILE__));
- echo $plugin_dir;
  load_plugin_textdomain( TEXT_DOMAIN, false, $plugin_dir );
 }
 

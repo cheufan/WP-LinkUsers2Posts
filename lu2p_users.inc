@@ -23,24 +23,15 @@ function lu2p_users_func( $atts ){
     else $user = " $firstname $lastname";
     $users_list[] = $user;
   }
-  // display results
+  // prepare list for display
   $users_nbr = count($users_list);
   if ($users_nbr) {
-    $users_list = implode(',',$users_list);
-    if ($users_nbr==1)
-      $verb = __('is', TEXT_DOMAIN);
-    else {
-      $verb = __('are', TEXT_DOMAIN);
-      $users_list = substr_replace(
-        $users_list,
-        __(' and', TEXT_DOMAIN),
-        strrpos($users_list,', '),
-        1
-      );
-    }
-    return sprintf(__('%s %s registred.', TEXT_DOMAIN),
-                  $users_list,
-                  $verb);
+    $users_list = implode(',', $users_list);
+    if ($users_nbr == 1)
+      $verb = __('Is registered', TEXT_DOMAIN);
+    else
+      $verb = __('Are registered', TEXT_DOMAIN);
+    return "$verb :<br>$users_list.";
   }
   return;
 }

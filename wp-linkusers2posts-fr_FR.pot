@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# FIRST AUTHOR <francois@fracanet.fr>, 2015.
 #
 msgid ""
 msgstr ""
@@ -31,18 +31,13 @@ msgid "Subscribe"
 msgstr "Inscription"
 
 #: lu2p_users.inc.php:31
-msgid "is"
-msgstr "est"
+msgid "Is registered"
+msgstr "Est inscrit"
 
 #: lu2p_users.inc.php:33
-msgid "are"
-msgstr "sont"
+msgid "Are registered"
+msgstr "Sont inscrits"
 
 #: lu2p_users.inc.php:36
 msgid " and"
 msgstr " et"
-
-#: lu2p_users.inc.php:41
-#, php-format
-msgid "%s %s registred."
-msgstr "%s %s inscrit."
